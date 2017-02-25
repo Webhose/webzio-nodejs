@@ -1,6 +1,9 @@
 webhose.io client for Node.js
 ============================
 
+[![npm version](https://img.shields.io/npm/v/webhoseio.svg?style=flat-square)](https://www.npmjs.com/package/webhoseio)
+[![npm downloads](https://img.shields.io/npm/dm/webhoseio.svg?style=flat-square)](https://www.npmjs.com/package/webhoseio)
+
 A simple way to access the [Webhose.io](https://webhose.io) API from your Node.js code
 
 ```javascript
@@ -36,7 +39,7 @@ You can install using npm:
 ```bash
 $ npm install webhoseio
 ```
- 
+
 Use the API
 -----------
 
@@ -46,7 +49,7 @@ To get started, you need to import the library, and set your access token.
 ```javascript
 const webhoseio = require('webhoseio');
 
-const client = webhoseio.config({token: 'YOUR_API_KEY'});  
+const client = webhoseio.config({token: 'YOUR_API_KEY'});
 ```
 
 **API Endpoints**
@@ -63,20 +66,20 @@ client.query('filterWebData', {q: 'github'})
   .then(output => {
     console.log(output['totalResults']);
     // 15565094
-    
+
     console.log(output['posts'].length);
     // 100
-    
+
     console.log(output['posts'][0]['language']);
     // english
-    
+
     console.log(output['posts'][0]['title']);
     // Putting quotes around dictionary keys in JS
 });
 ```
 
-For your convenience, functions `query` and `getNext` both return Promise with 
-one argument - the response JSON, so you can loop over it and get all the results of this batch (up to 100). 
+For your convenience, functions `query` and `getNext` both return Promise with
+one argument - the response JSON, so you can loop over it and get all the results of this batch (up to 100).
 
 ```javascript
 client.query('filterWebData', {q: 'github'})
@@ -97,15 +100,15 @@ Full documentation
 
 * ``query(end_point_str, params)``
 
-  * end_point_str: 
+  * end_point_str:
     * filterWebData - access to the news/blogs/forums/reviews API
     * productSearch - access to data about eCommerce products/services
     * darkWebAPI - access to the dark web (coming soon)
   * params: A key value dictionary. The most common key is the "q" parameter that hold the filters Boolean query. [Read about the available filters](https://webhose.io/documentation).
 
 * ``getNext()`` - a method to fetch the next page of results.
-    
-    
+
+
 Polling
 -------
 
@@ -122,4 +125,4 @@ setInterval(() => {
     return client.getNext();
   });
 }, 300);
-```        
+```
