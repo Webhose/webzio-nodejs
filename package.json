@@ -2,12 +2,12 @@
   "name": "webhoseio",
   "version": "1.0.1",
   "description": "webhose.io client for Node.js",
-  "main": "src/webhose.js",
+  "main": "webhoseio.js",
   "author": "",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "http://github.com/webhoseio/webhoseio-nodejs.git"
+    "url": "http://github.com/Webhose/webhosio-nodejs.git"
   },
   "dependencies": {
     "es6-promise": "^4.0.5",
