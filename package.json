@@ -1,6 +1,6 @@
 {
   "name": "webhoseio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "webhose.io client for Node.js",
   "main": "webhoseio.js",
   "author": "",
