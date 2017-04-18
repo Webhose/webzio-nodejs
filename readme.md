@@ -10,7 +10,7 @@ A simple way to access the [Webhose.io](https://webhose.io) API from your Node.j
 const webhoseio = require('webhoseio');
 
 const client = webhoseio.config({token: 'YOUR_API_KEY'});
-client.query('filterWebData', {q: 'github'})
+client.query('filterWebContent', {q: 'github'})
   .then(output => {
     console.log(output['posts'][0]['text']); // Print the text of the first post
     console.log(output['posts'][0]['published']); // Print the text of the first post publication date
@@ -55,14 +55,14 @@ const client = webhoseio.config({token: 'YOUR_API_KEY'});
 **API Endpoints**
 
 The first parameter the `query()` function accepts is the API endpoint string. Available endpoints:
-* `filterWebData` - access to the news/blogs/forums/reviews API
-* `productSearch` - access to data about eCommerce products/services
-* `darkWebAPI` - access to the dark web (coming soon)
+* `filterWebContent` - access to the news/blogs/forums/reviews API
+* `productFilter` - access to data about eCommerce products/services
+* `darkFilter` - access to the dark web (coming soon)
 
 Now you can make a request and inspect the results:
 
 ```javascript
-client.query('filterWebData', {q: 'github'})
+client.query('filterWebContent', {q: 'github'})
   .then(output => {
     console.log(output['totalResults']);
     // 15565094
@@ -82,7 +82,7 @@ For your convenience, functions `query` and `getNext` both return Promise with
 one argument - the response JSON, so you can loop over it and get all the results of this batch (up to 100).
 
 ```javascript
-client.query('filterWebData', {q: 'github'})
+client.query('filterWebContent', {q: 'github'})
   .then(output => {
     let totalWords = output['posts'].reduce((sum, post) => {
       return sum + post['text'].split(' ').length}, 0);
@@ -101,9 +101,9 @@ Full documentation
 * ``query(end_point_str, params)``
 
   * end_point_str:
-    * filterWebData - access to the news/blogs/forums/reviews API
-    * productSearch - access to data about eCommerce products/services
-    * darkWebAPI - access to the dark web (coming soon)
+    * filterWebContent - access to the news/blogs/forums/reviews API
+    * productFilter - access to data about eCommerce products/services
+    * darkFilter - access to the dark web (coming soon)
   * params: A key value dictionary. The most common key is the "q" parameter that hold the filters Boolean query. [Read about the available filters](https://webhose.io/documentation).
 
 * ``getNext()`` - a method to fetch the next page of results.
@@ -117,7 +117,7 @@ new results, use code like this:
 
 ```javascript
 const client = webhoseio.config({token: 'YOUR_API_KEY'});
-let r = client.query('filterWebData', {q: 'github'});
+let r = client.query('filterWebContent', {q: 'github'});
 
 setInterval(() => {
   r.then(output => {
