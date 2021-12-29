@@ -1,8 +1,8 @@
 'use strict';
 
-const webzio = require('../webzio.js');
+const webhoseio = require('../src/webhose');
 
-const client = webzio.config({ token: '670f37a4-2e44-49be-afbb-10a92a25c664' });
+const client = webhoseio.config({token: '61b50ab2-2f53-43f8-8b89-59ad8a5e83bd'});
 
 client.query('filterWebData', {q: 'github'})
   .then(output => {
@@ -12,10 +12,5 @@ client.query('filterWebData', {q: 'github'})
 
 client.getNext()
   .then(output => {
-    console.log("--------------------");
     console.log(output['posts'][0]['thread']['site']);
-    console.log(output['posts'][0]['published'])
   });
-
-
-
