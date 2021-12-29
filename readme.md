@@ -1,15 +1,15 @@
-webhose.io client for Node.js
+webz.io client for Node.js
 ============================
 
 [![npm version](https://img.shields.io/npm/v/webhoseio.svg?style=flat-square)](https://www.npmjs.com/package/webhoseio)
 [![npm downloads](https://img.shields.io/npm/dm/webhoseio.svg?style=flat-square)](https://www.npmjs.com/package/webhoseio)
 
-A simple way to access the [Webhose.io](https://webhose.io) API from your Node.js code
+A simple way to access the [Webz.io](https://webz.io) API from your Node.js code
 
 ```javascript
-const webhoseio = require('webhoseio');
+const webzio = require('webhoseio');
 
-const client = webhoseio.config({token: 'YOUR_API_KEY'});
+const client = webzio.config({token: 'YOUR_API_KEY'});
 client.query('filterWebContent', {q: 'github'})
   .then(output => {
     console.log(output['posts'][0]['text']); // Print the text of the first post
@@ -26,10 +26,10 @@ client.getNext()
 API Key
 -------
 
-To make use of the webhose.io API, you need to obtain a token that would be
+To make use of the webz.io API, you need to obtain a token that would be
 used on every request. To obtain an API key, create an account at
-https://webhose.io/auth/signup, and then go into
-https://webhose.io/dashboard to see your token.
+https://webz.io/auth/signup, and then go into
+https://webz.io/dashboard to see your token.
 
 
 Installing
@@ -47,9 +47,9 @@ To get started, you need to import the library, and set your access token.
 (Replace `YOUR_API_KEY` with your actual API key).
 
 ```javascript
-const webhoseio = require('webhoseio');
+const webzio = require('webhoseio');
 
-const client = webhoseio.config({token: 'YOUR_API_KEY'});
+const client = webzio.config({token: 'YOUR_API_KEY'});
 ```
 
 **API Endpoints**
@@ -104,7 +104,7 @@ Full documentation
     * filterWebContent - access to the news/blogs/forums/reviews API
     * productFilter - access to data about eCommerce products/services
     * darkFilter - access to the dark web (coming soon)
-  * params: A key value dictionary. The most common key is the "q" parameter that hold the filters Boolean query. [Read about the available filters](https://webhose.io/documentation).
+  * params: A key value dictionary. The most common key is the "q" parameter that hold the filters Boolean query. [Read about the available filters](https://webz.io/documentation).
 
 * ``getNext()`` - a method to fetch the next page of results.
 
@@ -116,7 +116,7 @@ If you want to make repeated searches, performing an action whenever there are
 new results, use code like this:
 
 ```javascript
-const client = webhoseio.config({token: 'YOUR_API_KEY'});
+const client = webzio.config({token: 'YOUR_API_KEY'});
 let r = client.query('filterWebContent', {q: 'github'});
 
 setInterval(() => {
