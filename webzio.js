@@ -4,10 +4,10 @@ require('isomorphic-fetch');
 require('es6-promise').polyfill();
 
 exports.config = function (options) {
-  return new WebhoseioClient(options);
+  return new WebzioClient(options);
 };
 
-function WebhoseioClient(options) {
+function WebzioClient(options) {
   options = options || {};
   if (!options.token) {
     throw new Error(`Missing required argument 'token'.`);
@@ -27,12 +27,12 @@ function getQuery(obj) {
 }
 
 
-WebhoseioClient.prototype.query = function (endpoint, params) {
-  this.nextUri = 'https://webhose.io/' + endpoint + getQuery(Object.assign({}, this.options, params));
+WebzioClient.prototype.query = function (endpoint, params) {
+  this.nextUri = 'https://api.webz.io/' + endpoint + getQuery(Object.assign({}, this.options, params));
   return this.getNext();
 };
 
-WebhoseioClient.prototype.getNext = function () {
+WebzioClient.prototype.getNext = function () {
   return fetch(this.nextUri)
     .then(response => {
       if (response.status < 200 || response.status >= 300) {
@@ -41,7 +41,7 @@ WebhoseioClient.prototype.getNext = function () {
       return response.json();
     })
     .then(data => {
-      this.nextUri = 'https://webhose.io' + data.next;
+      this.nextUri = 'https://api.webz.io' + data.next;
       return data;
     })
     .catch(error => {
