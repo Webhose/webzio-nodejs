@@ -7,7 +7,7 @@ webz.io client for Node.js
 A simple way to access the [Webz.io](https://webz.io) API from your Node.js code
 
 ```javascript
-const webzio = require('webhoseio');
+const webzio = require('webzio');
 
 const client = webzio.config({token: 'YOUR_API_KEY'});
 client.query('filterWebContent', {q: 'github'})
@@ -37,7 +37,7 @@ Installing
 You can install using npm:
 
 ```bash
-$ npm install webhoseio
+$ npm install webzio
 ```
 
 Use the API
@@ -47,7 +47,7 @@ To get started, you need to import the library, and set your access token.
 (Replace `YOUR_API_KEY` with your actual API key).
 
 ```javascript
-const webzio = require('webhoseio');
+const webzio = require('webzio');
 
 const client = webzio.config({token: 'YOUR_API_KEY'});
 ```

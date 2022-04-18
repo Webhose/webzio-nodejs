@@ -1,17 +1,17 @@
 {
   "name": "webzio",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "webz.io client for Node.js",
-  "main": "webz.js",
+  "main": "webzio.js",
   "author": "",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "http://github.com/Webhose/webhosio-nodejs.git"
+    "url": "http://github.com/Webhose/webzio-nodejs.git"
   },
   "dependencies": {
     "es6-promise": "^4.0.5",
     "isomorphic-fetch": "^2.2.1",
-    "webzio": "^1.0.2"
+    "webzio": "^1.0.4"
   }
 }
